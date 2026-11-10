@@ -1,0 +1,30 @@
+name: Checks
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@5228313ee0372e111a38da051671ca30fc5a96db
+        with:
+          version: "2026.10.24"
+      - run: npm ci
+      - run: npm run check
+      - run: actionlint
+      - run: zizmor --pedantic .github/workflows/check.yml
+      - run: gitleaks git --log-opts=-1 --redact --no-banner
