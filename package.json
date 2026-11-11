@@ -7,26 +7,25 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "cf build",
+    "build": "astro build",
     "preview": "astro preview",
-    "deploy": "cf deploy --prebuilt --mode production",
+    "deploy": "wrangler deploy --config wrangler.jsonc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "astro check",
-    "lint:html": "html-validate .cloudflare/output/v0/workers/default/assets/index.html",
+    "lint:html": "html-validate dist/index.html",
     "check": "npm run format:check && npm run typecheck && npm run build && npm run lint:html && npm run deploy -- --dry-run && npm audit --audit-level=high"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "15.0.0-beta.5",
     "astro": "7.4.8"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@types/node": "26.6.6",
-    "cf": "1.0.0-beta.28",
     "html-validate": "11.21.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "4.160.0"
   }
 }
