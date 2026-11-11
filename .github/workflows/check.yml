@@ -26,5 +26,5 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: actionlint
-      - run: zizmor --pedantic .github/workflows/check.yml
+      - run: zizmor --pedantic .github/workflows
       - run: gitleaks git --log-opts=-1 --redact --no-banner
