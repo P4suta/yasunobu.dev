@@ -1,7 +1,8 @@
 # Deployment
 
-`npm run build` generates standard Astro static output in `dist/`.
-`npm run check` validates the site and runs a credential-free Wrangler deployment dry run.
+`mise x -- npm run build` generates standard Astro static output in `dist/`.
+`mise x -- just check` runs the repository and site checks, including a credential-free Wrangler deployment dry run.
+The [contribution guide](../CONTRIBUTING.md) covers local setup and verification.
 Pull requests and merge groups run the Checks workflow without Cloudflare credentials.
 The Deploy workflow checks and deploys the same generated files when `main` changes, and supports manual runs from `main`.
 GitHub serializes deployment runs without interrupting an active deployment.

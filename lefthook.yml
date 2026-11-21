@@ -1,0 +1,16 @@
+pre-commit:
+  commands:
+    format:
+      run: mise x -- npm exec --no -- prettier --check --ignore-unknown -- {staged_files}
+    secrets:
+      run: mise x -- gitleaks git --pre-commit --staged --redact --no-banner
+
+commit-msg:
+  commands:
+    conventional:
+      run: mise x -- committed --commit-file "{1}"
+
+pre-push:
+  scripts:
+    check:
+      runner: sh
