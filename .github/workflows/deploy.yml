@@ -28,7 +28,7 @@ jobs:
           persist-credentials: false
       - uses: jdx/mise-action@5228313ee0372e111a38da051671ca30fc5a96db # v3
         with:
-          version: "2026.11.6"
+          version: "2026.11.9"
       - run: mise x -- npm ci
       - run: mise x -- just check
       - name: Fetch deployment credentials
