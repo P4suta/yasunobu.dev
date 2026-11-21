@@ -13,8 +13,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "astro check",
-    "lint:html": "html-validate dist/index.html",
-    "check": "npm run format:check && npm run typecheck && npm run build && npm run lint:html && npm run deploy -- --dry-run && npm audit --audit-level=high"
+    "lint:html": "html-validate dist/index.html && html-validate dist",
+    "test": "node --test",
+    "check": "npm run format:check && npm run typecheck && npm test && npm run build && npm run lint:html && npm run deploy -- --dry-run && npm audit --audit-level=high"
   },
   "dependencies": {
     "astro": "7.4.8"
