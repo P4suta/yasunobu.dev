@@ -18,7 +18,7 @@
     "check": "npm run format:check && npm run typecheck && npm test && npm run build && npm run lint:html && npm run deploy -- --dry-run && npm audit --audit-level=high"
   },
   "dependencies": {
-    "astro": "7.4.12"
+    "astro": "7.4.13"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
@@ -27,6 +27,6 @@
     "prettier": "3.10.1",
     "prettier-plugin-astro": "1.1.2",
     "typescript": "6.0.3",
-    "wrangler": "4.164.0"
+    "wrangler": "4.165.0"
   }
 }
