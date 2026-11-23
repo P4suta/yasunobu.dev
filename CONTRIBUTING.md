@@ -3,7 +3,7 @@
 ## Run the homepage locally
 
 Before trusting the checkout, review the tool versions in `mise.toml`.
-Install the pinned tools and dependencies, then start the Astro development server.
+Install the pinned tools and dependencies, then build the site and serve it with Wrangler.
 
 ```sh
 mise trust
@@ -12,9 +12,11 @@ mise x -- npm ci
 mise x -- npm run dev
 ```
 
-The development server listens at `http://localhost:4321`.
-Astro builds pages from `src/pages/`.
-It copies static assets from `public/`.
+The development server listens at `http://localhost:8787` and applies the headers from `public/_headers`.
+Choose another port with `mise x -- npm run dev -- --port <port>`.
+Restart the server to rebuild after a change.
+Pages in `src/pages/` are [Hono JSX](https://hono.dev/docs/guides/jsx) components, and `src/app.tsx` assigns their routes.
+The build writes each route to `dist/` and copies static assets from `public/`.
 
 ## Prepare a change
 

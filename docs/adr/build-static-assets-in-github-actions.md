@@ -12,7 +12,7 @@ Builds need to run in GitHub Actions with fewer Cloudflare permissions.
 
 ## Decision
 
-Use [Astro static output](https://docs.astro.build/en/guides/deploy/#building-your-site-locally) without an adapter.
+Build [static pages with Hono JSX](render-static-pages-with-hono-jsx.md) without an adapter.
 GitHub Actions checks and deploys `dist/` with Wrangler when `main` changes.
 Only the deployment step receives the Cloudflare API token.
 Doppler stores the Cloudflare account ID and token.

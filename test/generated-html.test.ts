@@ -51,6 +51,14 @@ test("HTML validation requires the homepage and checks nested pages", (t) => {
 	assert.equal(invalid.status, 1, invalid.output);
 	assert.match(invalid.output, /no-inline-style/);
 
+	writeFileSync(
+		notes,
+		valid.replace("<title>", '<meta charset="utf-8"><title>'),
+	);
+	const omittedVoid = lint();
+	assert.equal(omittedVoid.status, 1, omittedVoid.output);
+	assert.match(omittedVoid.output, /void-style/);
+
 	writeFileSync(notes, valid);
 	unlinkSync(homepage);
 	const missing = lint();

@@ -2,6 +2,7 @@
   "root": true,
   "extends": ["html-validate:recommended"],
   "rules": {
-    "no-inline-style": "error"
+    "no-inline-style": "error",
+    "void-style": ["error", { "style": "selfclose" }]
   }
 }
