@@ -1,0 +1,11 @@
+name = "yasunobu.dev"
+summary = "Personal homepage at sakashita.yasunobu.dev"
+install = """
+git clone https://github.com/P4suta/yasunobu.dev.git
+cd yasunobu.dev
+mise trust
+mise install
+mise x -- npm ci"""
+usage = "mise x -- npm run dev"
+documentation_index = true
+license = "unlicensed"
