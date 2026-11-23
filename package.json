@@ -6,27 +6,24 @@
     "node": ">=26.13.0 <27"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "npm run build && wrangler dev --config wrangler.jsonc",
+    "build": "tsc -p src && node .build/build.js",
     "deploy": "wrangler deploy --config wrangler.jsonc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "astro check",
+    "typecheck": "tsc --noEmit",
     "lint:html": "html-validate dist/index.html && html-validate dist",
     "test": "node --test",
     "check": "npm run format:check && npm run typecheck && npm test && npm run build && npm run lint:html && npm run deploy -- --dry-run && npm audit --audit-level=high"
   },
   "dependencies": {
-    "astro": "7.4.13"
+    "hono": "4.13.20"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.12",
     "@types/node": "26.6.6",
     "html-validate": "11.21.1",
     "prettier": "3.10.1",
-    "prettier-plugin-astro": "1.1.2",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "wrangler": "4.165.0"
   }
 }

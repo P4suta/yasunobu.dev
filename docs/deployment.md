@@ -1,6 +1,6 @@
 # Deployment
 
-`mise x -- npm run build` generates standard Astro static output in `dist/`.
+`mise x -- npm run build` generates static HTML and copies `public/` into `dist/`.
 `mise x -- just check` runs the repository and site checks, including a credential-free Wrangler deployment dry run.
 The [contribution guide](../CONTRIBUTING.md) covers local setup and verification.
 Pull requests and merge groups run the Checks workflow without Cloudflare credentials.
